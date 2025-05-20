@@ -1,0 +1,36 @@
+<div class="container mt-5 p-4 shadow-sm bg-white rounded">
+  <h1 class="text-center text-primary mb-4 fw-bold"> ITI Tracks</h1>
+
+  <div class="row align-items-center mb-4">
+    <div class="col-md-4">
+      <label for="departments" class="form-label fw-semibold text-muted">Filter by department</label>
+      <select
+        id="departments"
+        name="departments"
+        class="form-select border-primary"
+        [(ngModel)]="department"
+        (change)="filterTracks()"
+      >
+        <option value="All">All</option>
+        <option value="SD">SD</option>
+        <option value="Mobile">Mobile</option>
+        <option value="Design">Design</option>
+        <option value="OS">OS</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-6" *ngFor="let track of filteredList">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title text-primary">{{ track.name }}</h5>
+          <p class="card-text text-muted">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit
+          </p>
+          <span class="badge bg-gradient bg-primary text-white">{{ track.department }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

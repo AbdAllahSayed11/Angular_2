@@ -1,0 +1,28 @@
+<p class="text-primary fs-4">todos works!</p>
+
+<div class="container mt-4">
+  <div class="mb-3">
+    <label for="todo" class="form-label fw-bold">TO-DO</label>
+    <input type="text" name="todo" id="todo" [(ngModel)]="todo" class="form-control">
+  </div>
+  <div class="mb-3">
+    <button class="btn btn-primary" (click)="ADD()">ADD</button>
+  </div>
+
+  <hr>
+
+  @for (x of todoList; track $index; let i = $index) {
+    <div class="d-flex align-items-center justify-content-between border rounded p-2 mb-2">
+      <!-- <p [class.classDone]="flag" class="mb-0">
+        {{ todoList[i] }}
+      </p> -->
+      <p [class.classDone]="todoList[i].done">
+            {{ todoList[i].text }}
+        </p>
+      <div>
+        <button class="btn btn-sm btn-success me-2" (click)="done(i)">DONE</button>
+        <button class="btn btn-sm btn-danger" (click)="delete(i)">DELETE</button>
+      </div>
+    </div>
+  }
+</div>
